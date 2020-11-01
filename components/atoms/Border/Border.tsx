@@ -7,7 +7,7 @@ const useStyle = makeStyles({
     border: '3px solid #23b249',
     height: '100%',
     width: '90%',
-    overflowY: ({ overflow }) => overflow,
+    overflowY: (overflow) => overflow,
     overflowX: 'hidden',
     animation: `$fadein 1s`,
   },
