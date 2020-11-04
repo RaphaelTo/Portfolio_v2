@@ -1,10 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core';
 
 import StartMenu from '@/components/molecules/StartMenu/StartMenu';
 import Text from '@/components/atoms/Text/Text';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   title: {
     marginTop: 0,
     fontSize: 100,

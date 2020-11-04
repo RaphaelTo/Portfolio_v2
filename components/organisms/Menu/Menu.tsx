@@ -2,14 +2,16 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import { useSelector } from 'react-redux';
+import { Theme } from '@material-ui/core';
 
+import IStoreMusic from '@/interfaces/IStoreMusic';
 import useMusic from '@/hooks/useMusic';
 import useScreenMusic from '@/hooks/useScreenSize';
 import { configMusic, pathSelect, pathCursor } from '@/utils/music';
 
 import LinkButton from '@/components/atoms/LinkButton/LinkButton';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   menuButton: {
     display: 'flex',
     flexFlow: 'row wrap',
@@ -53,7 +55,7 @@ const useStyle = makeStyles({
 
 const Menu: React.FC = () => {
   const classes = useStyle();
-  const musicOnOff = useSelector((state) => state.reducerMusic.music);
+  const musicOnOff = useSelector((state: IStoreMusic) => state.reducerMusic.music);
   const music = useMusic();
   const [width] = useScreenMusic();
 

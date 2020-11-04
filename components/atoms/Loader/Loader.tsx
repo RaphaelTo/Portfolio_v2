@@ -1,8 +1,18 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
+import { WidthProperty } from '@material-ui/styles/node_modules/csstype/index';
+import { Theme } from '@material-ui/core';
 
-const useStyle = makeStyles(() => ({
+type LoaderProps = {
+  point: number;
+};
+
+type CSSProps = {
+  exp: WidthProperty<string | number>;
+};
+
+const useStyle = makeStyles<Theme, CSSProps>({
   bar: {
     width: 250,
     height: 20,
@@ -13,15 +23,15 @@ const useStyle = makeStyles(() => ({
     backgroundColor: '#70b8f0',
     width: ({ exp }) => exp,
   },
-}));
+});
 
-const Loader = ({ point }) => {
+const Loader: React.FC<LoaderProps> = ({ point }) => {
   const [exp, setExp] = React.useState(0);
 
   React.useEffect(() => {
-    let mounted = true;
+    let mounted: boolean = true;
 
-    for (let index = 0; index <= point; index++) {
+    for (let index: number = 0; index <= point; index++) {
       setTimeout(() => {
         if (mounted) {
           setExp(index);

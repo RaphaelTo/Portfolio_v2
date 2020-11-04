@@ -2,8 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 
 import Text from '@/components/atoms/Text/Text';
+import { Theme } from '@material-ui/core';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   copyright: {
     margin: 0,
     fontSize: 12,

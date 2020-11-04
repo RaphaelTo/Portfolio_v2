@@ -1,11 +1,12 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core';
 
 import HomeScreen from '@/components/organisms/HomeScreen/HomeScreen';
 import Copyright from '@/components/molecules/Copyright/Copyright';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   home: {
     height: '100%',
     width: '100%',

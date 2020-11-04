@@ -4,7 +4,6 @@ export const theme = createMuiTheme({
     typography: {
         fontFamily: "Minecraft",
         fontSize: 12,
-        src: `url("/font/Minecraft.ttf") format("truetype")`
     },
     overrides: {
         MuiCssBaseline: {

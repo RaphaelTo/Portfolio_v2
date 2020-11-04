@@ -1,7 +1,13 @@
 import React from 'react';
+import IUseMusic from '@/interfaces/IUseMusic';
 
-const useMusic = () => {
-  const [allMusic, setAllMusic] = React.useState({});
+const useMusic = (): IUseMusic<HTMLAudioElement | string> => {
+  const [allMusic, setAllMusic] = React.useState<IUseMusic<HTMLAudioElement | string>>({
+    startMusic: '',
+    closeMusic: '',
+    selectMusic: '',
+    cursorMusic: '',
+  });
 
   React.useEffect(() => {
     const start = new Audio('/sound/start_v2.mp3');

@@ -1,10 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core';
 
 import LinkButton from '@/components/atoms/LinkButton/LinkButton';
 import Image from '@/components/atoms/Image/Image';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   img: {
     width: 80,
     height: 80,
@@ -17,7 +18,7 @@ const useStyle = makeStyles({
   },
 });
 
-const Account = () => {
+const Account: React.FC = () => {
   const classes = useStyle();
   return (
     <>

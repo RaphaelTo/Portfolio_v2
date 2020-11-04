@@ -1,16 +1,18 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { activatedInactivatedMusic } from '@/store/action/ActionMusic';
-
+import IStoreMusic from '@/interfaces/IStoreMusic';
+import IUseMusic from '@/interfaces/IUseMusic';
 import useScreenSize from '@/hooks/useScreenSize';
 import useMusic from '@/hooks/useMusic';
 import { configMusic, pathStart, pathClose, pathCursor, pathSelect } from '@/utils/music';
 import LinkButton from '@/components/atoms/LinkButton/LinkButton';
 import Button from '@/components/atoms/Button/Button';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   button: {
     width: '700px',
     fontSize: 50,
@@ -45,13 +47,13 @@ const StartMenu: React.FC = () => {
   const classes = useStyle();
 
   const [binaryOperator, setBinaryOperator] = React.useState({ home: '', music: '' });
-  const music = useMusic();
+  const music: IUseMusic<HTMLAudioElement | string> = useMusic();
   const [width] = useScreenSize();
 
   const dispatch = useDispatch();
-  const musicOnOff = useSelector((state) => state.reducerMusic.music);
+  const musicOnOff = useSelector((state: IStoreMusic) => state.reducerMusic.music);
 
-  const mouseEnterBinary = (e) => {
+  const mouseEnterBinary = (e: any) => {
     if (e.target.id === 'home') {
       setBinaryOperator({ home: '>', music: '' });
       configMusic(musicOnOff, width > 1400 ? new Audio(pathCursor) : music.cursorMusic);
@@ -63,7 +65,7 @@ const StartMenu: React.FC = () => {
     }
   };
 
-  const mouseLeaveBinary = () => {
+  const mouseLeaveBinary: () => void = () => {
     setBinaryOperator({ home: '', music: '' });
   };
 

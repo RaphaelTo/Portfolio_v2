@@ -1,6 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
 import Text from '@/components/atoms/Text/Text';
@@ -10,7 +11,7 @@ import Button from '@/components/atoms/Button/Button';
 import { sendMail } from '@/smtp/smtp';
 import { mailSended, errorMail, resetMsgMail } from '@/store/action/ActionMail';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   form: {
     width: '100%',
     height: '100%',
@@ -49,14 +50,14 @@ const useStyle = makeStyles({
   },
 });
 
-const Form = () => {
+const Form: React.FC = () => {
   const classes = useStyle();
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [message, setMessage] = React.useState('');
   const dispatch = useDispatch();
 
-  const handleInput = (e) => {
+  const handleInput = (e: any) => {
     if (e.target.name === 'name') {
       setName(e.target.value);
     }
@@ -68,7 +69,7 @@ const Form = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
       dispatch(errorMail());
@@ -96,6 +97,8 @@ const Form = () => {
             Votre nom:{' '}
           </Text>
           <Input
+            type="text"
+            textarea={false}
             className={classes.input}
             valueInput={name}
             onChangeInput={handleInput}
@@ -105,6 +108,7 @@ const Form = () => {
             Votre email:{' '}
           </Text>
           <Input
+            textarea={false}
             type="email"
             className={classes.input}
             onChangeInput={handleInput}
@@ -115,6 +119,7 @@ const Form = () => {
             Votre message:{' '}
           </Text>
           <Input
+            type="hidden"
             textarea={true}
             className={classes.message}
             onChangeInput={handleInput}

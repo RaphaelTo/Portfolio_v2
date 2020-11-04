@@ -2,7 +2,9 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import { useSelector, useDispatch } from 'react-redux';
+import { Theme } from '@material-ui/core';
 
+import { IStoreSkill } from '@/interfaces/IStoreSkill';
 import { getSkill, forgetSkill } from '@/store/action/ActionSkill';
 import { skills } from '@/constants/constants';
 
@@ -12,7 +14,7 @@ import Menu from '@/components/organisms/Menu/Menu';
 import Footer from '@/components/organisms/Footer/Footer';
 import Skill from '@/components/organisms/Skill/Skill';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   container: {
     height: '100%',
   },
@@ -39,9 +41,9 @@ const useStyle = makeStyles({
   },
 });
 
-const CompetenceView = () => {
+const CompetenceView: React.FC = () => {
   const classes = useStyle();
-  const titleProject = useSelector((state) => state.reducerSkill.skill);
+  const titleProject = useSelector((state: IStoreSkill) => state.reducerSkill.skill);
   const dispatch = useDispatch();
 
   return (

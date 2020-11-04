@@ -4,16 +4,17 @@ import {
   ACTION_MAIL_SENDED,
   ACTION_RESET_MSG_MAIL
 } from '@/store/action/ActionMail';
+import IActionMail from '@/interfaces/IActionMail';
 
 type StateType = {
-  mail: Boolean
-}
+  mail: string
+};
 
-const initialState = {
+const initialState: StateType = {
   mail: ''
 };
 
-const reducerMusic = (state = initialState, action) => {
+const reducerMusic = (state = initialState, action: IActionMail) => {
   return produce(state, draft => {
     switch (action.type) {
       case ACTION_ERROR_MAIL:

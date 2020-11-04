@@ -2,6 +2,8 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import { useSelector } from 'react-redux';
+import { Theme } from '@material-ui/core';
+import IStoreProject from '@/interfaces/IStoreProject';
 
 import Border from '@/components/atoms/Border/Border';
 import Project from '@/components/organisms/Project/Project';
@@ -9,7 +11,7 @@ import BannerName from '@/components/molecules/BannerName/BannerName';
 import Menu from '@/components/organisms/Menu/Menu';
 import Footer from '@/components/organisms/Footer/Footer';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   container: {
     height: '100%',
   },
@@ -30,7 +32,7 @@ const useStyle = makeStyles({
 
 const ProjetView: React.FC = () => {
   const classes = useStyle();
-  const project = useSelector((state) => state.reducerProject.project);
+  const project = useSelector((state: IStoreProject) => state.reducerProject.project);
 
   return (
     <>

@@ -1,11 +1,11 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
-
+import { Theme } from '@material-ui/core';
 import Text from '@/components/atoms/Text/Text';
 import LinkButton from '@/components/atoms/LinkButton/LinkButton';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   start: {
     fontSize: '1.3em',
   },
@@ -16,7 +16,7 @@ const useStyle = makeStyles({
   },
 });
 
-const EndCredits = () => {
+const EndCredits: React.FC = () => {
   const classes = useStyle();
 
   return (

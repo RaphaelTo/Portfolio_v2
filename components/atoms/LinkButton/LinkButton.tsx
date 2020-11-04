@@ -3,23 +3,38 @@ import Link from 'next/link';
 import { makeStyles } from '@material-ui/styles';
 import { Theme } from '@material-ui/core';
 import clsx from 'clsx';
+import {
+  PaddingProperty,
+  BackgroundColorProperty,
+  FontSizeProperty,
+  BorderProperty,
+  MarginProperty,
+} from '@material-ui/styles/node_modules/csstype/index';
 
 type LinkProps = {
-  url: String;
-  children: any;
-  padding?: String | Number;
-  backgroundColor?: String;
-  fontSize?: Number;
-  border?: string;
-  margin?: string | number;
-  className?: String;
-  onMouseEnter?: any;
-  onMouseLeave?: any;
-  onClick?: any;
+  url: string;
+  children: React.ReactNode;
+  padding?: PaddingProperty<any>;
+  backgroundColor?: any;
+  fontSize?: FontSizeProperty<any>;
+  border?: BorderProperty<any>;
+  margin?: MarginProperty<any>;
+  className?: string;
+  onMouseEnter?: React.ReactEventHandler;
+  onMouseLeave?: React.ReactEventHandler;
+  onClick?: React.ReactEventHandler;
   id?: string;
 };
 
-const useStyles = makeStyles<Theme>(() => ({
+type PropsCSS = {
+  padding: PaddingProperty<string | number>;
+  backgroundColor: BackgroundColorProperty;
+  fontSize: FontSizeProperty<string | number>;
+  border: BorderProperty<string>;
+  margin: MarginProperty<string>;
+};
+
+const useStyles = makeStyles<Theme, PropsCSS>(() => ({
   button: {
     padding: ({ padding }) => padding,
     backgroundColor: ({ backgroundColor }) => backgroundColor,

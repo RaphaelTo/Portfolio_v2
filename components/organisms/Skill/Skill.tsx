@@ -1,11 +1,23 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core';
 
 import Level from '@/components/molecules/Level/Level';
 import Image from '@/components/atoms/Image/Image';
 
-const useStyle = makeStyles({
+type SkillProps = {
+  srcImg: string;
+  altImg: string;
+  lvl: string;
+  exp: number;
+  mouseEnter: React.MouseEventHandler;
+  mouseLeave: React.MouseEventHandler;
+  width?: number;
+  height?: number;
+};
+
+const useStyle = makeStyles<Theme>({
   imgDiv: {
     height: 300,
     objectFit: 'scale-down',
@@ -16,7 +28,15 @@ const useStyle = makeStyles({
   },
 });
 
-const Skill = ({ srcImg, altImg, lvl, exp, mouseEnter, mouseLeave, ...anyProps }) => {
+const Skill: React.FC<SkillProps> = ({
+  srcImg,
+  altImg,
+  lvl,
+  exp,
+  mouseEnter,
+  mouseLeave,
+  ...anyProps
+}) => {
   const classes = useStyle();
 
   return (

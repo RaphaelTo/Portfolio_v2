@@ -1,4 +1,7 @@
-export const img = {
+import ConstSkill from '@/interfaces/ConstSkills';
+import ConstImg from '@/interfaces/ConstImg';
+
+export const img: ConstImg = {
   project: [
     {
       title: 'React-Native-Velib',
@@ -43,7 +46,7 @@ export const img = {
   ]
 };
 
-export const skills = {
+export const skills:ConstSkill = {
   skill: [
     {
       name: 'Javascript',

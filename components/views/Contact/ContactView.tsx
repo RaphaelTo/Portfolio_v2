@@ -2,6 +2,8 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import { useSelector } from 'react-redux';
+import IStoreMail from '@/interfaces/IStoreMail';
+import { Theme } from '@material-ui/core';
 
 import Border from '@/components/atoms/Border/Border';
 import Form from '@/components/organisms/Form/Form';
@@ -9,7 +11,7 @@ import BannerName from '@/components/molecules/BannerName/BannerName';
 import Menu from '@/components/organisms/Menu/Menu';
 import Footer from '@/components/organisms/Footer/Footer';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   container: {
     height: '100%',
   },
@@ -28,14 +30,14 @@ const useStyle = makeStyles({
   },
 });
 
-const ContactView = () => {
+const ContactView: React.FC = () => {
   const classes = useStyle();
-  const mail = useSelector((state) => state.reducerMail.mail);
+  const mail = useSelector((state: IStoreMail) => state.reducerMail.mail);
   return (
     <>
       <Grid container className={classes.container}>
         <Grid container justify="center" className={classes.border}>
-          <Border>
+          <Border overflow="hidden">
             <Form />
           </Border>
         </Grid>

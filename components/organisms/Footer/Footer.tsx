@@ -1,8 +1,9 @@
 import React from 'react';
+import { Theme } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import { useSelector, useDispatch } from 'react-redux';
-
+import IStoreMusic from '@/interfaces/IStoreMusic';
 import useScreenSize from '@/hooks/useScreenSize';
 import useMusic from '@/hooks/useMusic';
 import { configMusic, pathStart, pathClose } from '@/utils/music';
@@ -11,7 +12,7 @@ import { activatedInactivatedMusic } from '@/store/action/ActionMusic';
 import Copyright from '@/components/molecules/Copyright/Copyright';
 import SoundIcon from '@/components/atoms/SoundIcon/SoundIcon';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   footer: {
     height: '5%',
   },
@@ -19,7 +20,7 @@ const useStyle = makeStyles({
 
 const Footer: React.FC = () => {
   const classes = useStyle();
-  const musicOnOff = useSelector((state) => state.reducerMusic.music);
+  const musicOnOff = useSelector((state: IStoreMusic) => state.reducerMusic.music);
   const dispatch = useDispatch();
   const music = useMusic();
   const [width] = useScreenSize();

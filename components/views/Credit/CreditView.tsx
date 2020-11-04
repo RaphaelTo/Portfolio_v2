@@ -2,7 +2,9 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import { useSelector } from 'react-redux';
+import { Theme } from '@material-ui/core';
 
+import IStoreMusic from '@/interfaces/IStoreMusic';
 import { configImg } from '@/utils/img';
 import { PlayerEndMusic } from '@/utils/music';
 
@@ -12,7 +14,7 @@ import BannerName from '@/components/molecules/BannerName/BannerName';
 import Footer from '@/components/organisms/Footer/Footer';
 import EndCredits from '@/components/organisms/EndCredits/EndCredits';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   container: {
     height: '100%',
   },
@@ -34,9 +36,9 @@ const useStyle = makeStyles({
   },
 });
 
-const CreditView = () => {
+const CreditView: React.FC = () => {
   const classes = useStyle();
-  const musicOnOff = useSelector((state) => state.reducerMusic.music);
+  const musicOnOff = useSelector((state: IStoreMusic) => state.reducerMusic.music);
   const [music] = React.useState(new Audio('/sound/End_Credits.mp3'));
 
   React.useEffect(() => {

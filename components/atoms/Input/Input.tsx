@@ -1,6 +1,15 @@
 import React from 'react';
 
-const tuplesType = [
+type InputProps = {
+  type: string;
+  textarea: boolean;
+  className?: string;
+  valueInput: string;
+  onChangeInput: React.ReactEventHandler;
+  name?: string;
+};
+
+const tuplesType: string[] = [
   'button',
   'checkbox',
   'color',
@@ -25,15 +34,22 @@ const tuplesType = [
   'week',
 ];
 
-const Input = ({ type = 'text', textarea = false, className, valueInput, onChangeInput, name }) => {
+const Input: React.FC<InputProps> = ({
+  type = 'text',
+  textarea = false,
+  className,
+  valueInput,
+  onChangeInput,
+  name,
+}) => {
   const checkType = tuplesType.includes(type) ? type : 'text';
 
   return (
     <>
       {textarea ? (
         <textarea
-          cols="30"
-          rows="10"
+          cols={30}
+          rows={10}
           className={className}
           value={valueInput}
           onChange={onChangeInput}

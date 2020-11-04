@@ -1,6 +1,6 @@
 ﻿import * as SMTP from './smtp_core';
 
-export async function sendMail(name, email, body) {
+export async function sendMail(name: string, email: string, body: string): Promise<any> {
     const send = SMTP.Email.send({
         SecureToken : "53e41aa9-fd4d-46fc-825b-0e7908323f2d",
         To : 'portfolioraphaeltorres@gmail.com',

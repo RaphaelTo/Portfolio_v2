@@ -5,7 +5,7 @@ import reducerProject from '@/store/reducer/ReducerProject';
 import reducerSkill from '@/store/reducer/ReducerSkill';
 import reducerMail from '@/store/reducer/ReducerMail';
 
-const middleware: any = [];
+const middleware: any[] = [];
 
 const combine = combineReducers({
   reducerMusic,

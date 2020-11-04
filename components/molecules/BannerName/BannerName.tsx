@@ -1,11 +1,19 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
+import { Theme } from '@material-ui/core';
+
+import IStructureImg from '@/interfaces/IStructureImg';
 
 import Text from '@/components/atoms/Text/Text';
 import Image from '@/components/atoms/Image/Image';
 
-const useStyle = makeStyles({
+type BannerNameProps = {
+  title?: string;
+  img?: Array<IStructureImg>;
+};
+
+const useStyle = makeStyles<Theme>({
   banner: {
     border: '2px solid white',
     width: '90%',
@@ -37,7 +45,7 @@ const useStyle = makeStyles({
   },
 });
 
-const BannerName = ({ title, img }) => {
+const BannerName: React.FC<BannerNameProps> = ({ title, img }) => {
   const classes = useStyle();
 
   return (

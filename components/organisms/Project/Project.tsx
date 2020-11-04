@@ -2,7 +2,10 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
 import { useDispatch, useSelector } from 'react-redux';
+import { Theme } from '@material-ui/core';
 
+import { Img, StructureImgState } from '@/interfaces/IProjectImg';
+import IStoreMusic from '@/interfaces/IStoreMusic';
 import useScreenSize from '@/hooks/useScreenSize';
 import useMusic from '@/hooks/useMusic';
 import { configMusic, pathCursor, pathSelect, pathClose } from '@/utils/music';
@@ -14,7 +17,7 @@ import Modal from '@/components/atoms/Modal/Modal';
 import Text from '@/components/atoms/Text/Text';
 import LinkButton from '@/components/atoms/LinkButton/LinkButton';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles<Theme>({
   img: {
     width: 200,
     height: 200,
@@ -245,16 +248,18 @@ const useStyle = makeStyles({
   },
 });
 
-const Project = () => {
+const Project: React.FC = () => {
   const classes = useStyle();
   const dispatch = useDispatch();
-  const musicOnOff = useSelector((state) => state.reducerMusic.music);
+  const musicOnOff = useSelector((state: IStoreMusic) => state.reducerMusic.music);
   const music = useMusic();
   const [width] = useScreenSize();
   const [modal, setModal] = React.useState(false);
-  const [contentProjects, setContentProjects] = React.useState({ projet: '' });
+  const [contentProjects, setContentProjects] = React.useState<StructureImgState>({
+    projet: { title: '', src: '', description: '', github: '' },
+  });
 
-  const handleEnterMouseImage = (image: any) => {
+  const handleEnterMouseImage = (image: Img) => {
     configMusic(musicOnOff, width > 1400 ? new Audio(pathCursor) : music.cursorMusic);
     dispatch(actionGetProject(image));
   };
@@ -263,7 +268,7 @@ const Project = () => {
     dispatch(actionRemoveProject());
   };
 
-  const clickOnImage = (image) => {
+  const clickOnImage = (image: Img) => {
     configMusic(musicOnOff, width > 1400 ? new Audio(pathSelect) : music.selectMusic);
     setModal(true);
     setContentProjects({ projet: image });
