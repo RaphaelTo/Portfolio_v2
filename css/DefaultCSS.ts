@@ -12,7 +12,7 @@ export const theme = createMuiTheme({
                     fontFamily: 'Minecraft',
                     src: `
                       local('Minecraft'),
-                      url('/font/Minecraft.ttf') format('ttf')
+                      url('/public/font/Minecraft.ttf') format('ttf')
                     `,
                 },
                 'html, body, #__next, #layout': {
