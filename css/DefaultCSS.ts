@@ -8,6 +8,13 @@ export const theme = createMuiTheme({
     overrides: {
         MuiCssBaseline: {
             '@global': {
+                '@font-face': {
+                    fontFamily: 'Minecraft',
+                    src: `
+                      local('Minecraft'),
+                      url(/font/Minecraft.ttf) format('ttf')
+                    `,
+                },
                 'html, body, #__next, #layout': {
                     backgroundColor: 'black',
                     color: 'white',
