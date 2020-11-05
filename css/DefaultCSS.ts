@@ -9,20 +9,14 @@ export const theme = createMuiTheme({
         MuiCssBaseline: {
             '@global': {
                 '@font-face': {
-                    fontFamily: 'Minecraft',
+                    fontFamily: 'minecraft',
                     src: `
-                    url("/font/Minecraft.ttf") format("truetype"),
-                    url("/font/Minecraft.woff") format("woff"),
-                    url("/font/Minecraft.woff2") format("woff2"),
+                        url("/font/Minecraft.ttf") format("truetype"),
+                        url("/font/Minecraft.woff") format("woff"),
+                        url("/font/Minecraft.woff2") format("woff2"),
                     `
                 },
                 'html, body, #__next, #layout': {
-                    fontFamily: 'Minecraft',
-                    src: `
-                    url("/font/Minecraft.ttf") format("truetype"),
-                    url("/font/Minecraft.woff") format("woff"),
-                    url("/font/Minecraft.woff2") format("woff2"),
-                    `,
                     backgroundColor: 'black',
                     color: 'white',
                     width: '100%',
