@@ -1,2 +1,6 @@
 const withFonts = require('next-fonts');
-module.exports = withFonts();
+module.exports = withFonts({
+    webpack(config, options) {
+        return config;
+    }
+});

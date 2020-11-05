@@ -34,5 +34,5 @@
     }
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "smtp/smtp_core.js"]
+  "include": ["**/*.ts", "**/*.tsx", "smtp/smtp_core.js", "next.config.js"]
 }
