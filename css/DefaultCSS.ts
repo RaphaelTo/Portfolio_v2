@@ -1,5 +1,4 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import Minecraft from "./Minecraft.ttf";
 
 export const theme = createMuiTheme({
     typography: {
@@ -11,10 +10,7 @@ export const theme = createMuiTheme({
             '@global': {
                 '@font-face': {
                     fontFamily: 'Minecraft',
-                    src: `
-                    local('Minecraft'),
-                    url(${Minecraft}) format('truetype')
-                  `,
+                    src: 'url("/font/Minecraft.ttf") format(truetype)'
                 },
                 'html, body, #__next, #layout': {
                     backgroundColor: 'black',
