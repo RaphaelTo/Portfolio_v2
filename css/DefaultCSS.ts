@@ -11,9 +11,9 @@ export const theme = createMuiTheme({
                 '@font-face': {
                     fontFamily: 'minecraft',
                     src: `
-                        url("/font/Minecraft.ttf") format("truetype"),
-                        url("/font/Minecraft.woff") format("woff"),
-                        url("/font/Minecraft.woff2") format("woff2"),
+                        url('/font/Minecraft.ttf') format('truetype'),
+                        url('/font/Minecraft.woff') format('woff'),
+                        url('/font/Minecraft.woff2') format("woff2");
                     `
                 },
                 'html, body, #__next, #layout': {
