@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import Minecraft from '../public/font/Minecraft.ttf';
+import Minecraft from "./Minecraft.ttf";
 
 export const theme = createMuiTheme({
     typography: {
