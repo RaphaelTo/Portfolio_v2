@@ -49,7 +49,7 @@ const Skill: React.FC<SkillProps> = ({
       onMouseLeave={mouseLeave}
     >
       <Grid container className={classes.imgDiv} alignContent="center" justify="center">
-        <Image src={srcImg} alt={altImg} {...anyProps} />
+        <Image height={300} width={300} src={srcImg} alt={altImg} {...anyProps} />
       </Grid>
       <Level lvl={lvl} exp={exp} />
     </Grid>

@@ -64,7 +64,14 @@ const BannerName: React.FC<BannerNameProps> = ({ title, img }) => {
         )}
         {img &&
           img.map((image, key) => (
-            <Image src={image.src} alt={image.name} className={classes.img} key={key} />
+            <Image
+              src={image.src}
+              alt={image.name}
+              height={50}
+              width={50}
+              className={classes.img}
+              key={key}
+            />
           ))}
       </Grid>
     </Grid>

@@ -48,9 +48,9 @@ const useStyle = makeStyles<Theme>({
     width: 40,
     height: 40,
     position: 'absolute',
-    top: '23%',
-    right: '22%',
-    cursor: 'pointer',
+    top: '23% !important',
+    right: '22% !important',
+    cursor: 'pointer !important',
   },
   modalDescription: {
     width: '50%',
@@ -295,6 +295,8 @@ const Project: React.FC = () => {
             <Image
               src={image.src}
               alt={image.title}
+              height={200}
+              width={200}
               className={classes.img}
               onClick={() => clickOnImage(image)}
             />
@@ -308,15 +310,20 @@ const Project: React.FC = () => {
             alignItems="center"
             className={classes.modalContent}
           >
-            <Image
-              src="/img/cross.png"
-              alt="cross"
-              className={classes.crossImg}
-              onClick={handleCloseModal}
-            />
+            <Grid className={classes.crossImg}>
+              <Image
+                src="/img/cross.png"
+                alt="cross"
+                width={40}
+                height={40}
+                onClick={handleCloseModal}
+              />
+            </Grid>
             <Image
               src={contentProjects.projet.src}
               alt={contentProjects.projet.title}
+              width={300}
+              height={300}
               className={classes.imgModal}
             />
             <Grid container direction="column" className={classes.modalDescription}>

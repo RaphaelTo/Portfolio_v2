@@ -26,10 +26,16 @@ const Account: React.FC = () => {
         url="https://www.linkedin.com/in/torres-paiva-raphael-677b60182/"
         className={classes.hoverImg}
       >
-        <Image src="/img/linkedin.png" alt="linkedin" className={classes.img} />
+        <Image
+          src="/img/linkedin.png"
+          alt="linkedin"
+          width={80}
+          height={80}
+          className={classes.img}
+        />
       </LinkButton>
       <LinkButton url="https://github.com/RaphaelTo" className={classes.hoverImg}>
-        <Image src="/img/github.png" alt="github" className={classes.img} />
+        <Image src="/img/github.png" alt="github" width={80} height={80} className={classes.img} />
       </LinkButton>
     </>
   );
