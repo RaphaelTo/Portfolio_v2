@@ -10,7 +10,9 @@ export const theme = createMuiTheme({
             '@global': {
                 '@font-face': {
                     fontFamily: 'Minecraft',
-                    src: 'url("/font/Minecraft.ttf") format(truetype)'
+                    src: `url("/font/Minecraft.ttf") 
+                    local('Minecraft')
+                    format(truetype)`
                 },
                 'html, body, #__next, #layout': {
                     backgroundColor: 'black',
