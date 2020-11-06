@@ -27,6 +27,9 @@ const useStyle = makeStyles<Theme>({
       cursor: 'pointer',
     },
   },
+  imgScale: {
+    objectFit: 'scale-down',
+  },
   divImg: {
     width: 280,
     height: 260,
@@ -71,13 +74,13 @@ const useStyle = makeStyles<Theme>({
   },
   '@media screen and (min-width: 320px) and (max-width: 374px)': {
     img: {
-      width: 130,
-      height: 130,
+      width: '130px !important',
+      height: '130px !important',
       paddingBottom: 5,
     },
     divImg: {
-      width: 210,
-      height: 190,
+      width: '210px !important',
+      height: '190px !important',
       margin: 30,
       '&:hover': {
         backgroundSize: '210px 190px',
@@ -90,10 +93,10 @@ const useStyle = makeStyles<Theme>({
       overflowY: 'scroll',
     },
     crossImg: {
-      width: 30,
-      height: 30,
-      top: '18%',
-      right: '15%',
+      width: '30px !important',
+      height: '30px !important',
+      top: '18% !important',
+      right: '15% !important',
     },
     modalDescription: {
       width: '100%',
@@ -101,7 +104,7 @@ const useStyle = makeStyles<Theme>({
       fontSize: 8,
     },
     imgModal: {
-      display: 'none',
+      display: 'none !important',
     },
     linkModal: {
       fontSize: 12,
@@ -109,12 +112,12 @@ const useStyle = makeStyles<Theme>({
   },
   '@media screen and (min-width: 375px) and (max-width: 413px)': {
     img: {
-      width: 130,
-      height: 130,
+      width: '130px !important',
+      height: '130px !important',
       paddingBottom: 5,
     },
     divImg: {
-      width: 220,
+      width: '220px !important',
       height: 190,
       margin: '20%',
       '&:hover': {
@@ -128,10 +131,10 @@ const useStyle = makeStyles<Theme>({
       overflowY: 'scroll',
     },
     crossImg: {
-      width: 30,
-      height: 30,
-      top: '18%',
-      right: '15%',
+      width: '30px !important',
+      height: '30px !important',
+      top: '18% !important',
+      right: '15% !important',
     },
     modalDescription: {
       width: '100%',
@@ -139,7 +142,7 @@ const useStyle = makeStyles<Theme>({
       fontSize: 8,
     },
     imgModal: {
-      display: 'none',
+      display: 'none !important',
     },
     linkModal: {
       fontSize: 12,
@@ -147,13 +150,13 @@ const useStyle = makeStyles<Theme>({
   },
   '@media screen and (min-width: 414px) and (max-width: 480px)': {
     img: {
-      width: 130,
-      height: 130,
+      width: '130px !important',
+      height: '130px !important',
       paddingBottom: 5,
     },
     divImg: {
-      width: 220,
-      height: 190,
+      width: '220px !important',
+      height: '190px !important',
       margin: '20%',
       '&:hover': {
         backgroundSize: '220px 190px',
@@ -166,10 +169,10 @@ const useStyle = makeStyles<Theme>({
       overflowY: 'scroll',
     },
     crossImg: {
-      width: 30,
-      height: 30,
-      top: '18%',
-      right: '15%',
+      width: '30px !important',
+      height: '30px !important',
+      top: '18% !important',
+      right: '15% !important',
     },
     modalDescription: {
       width: '100%',
@@ -177,7 +180,7 @@ const useStyle = makeStyles<Theme>({
       fontSize: 8,
     },
     imgModal: {
-      display: 'none',
+      display: 'none !important',
     },
     linkModal: {
       fontSize: 12,
@@ -188,11 +191,11 @@ const useStyle = makeStyles<Theme>({
       justifyContent: 'center',
     },
     crossImg: {
-      width: 40,
-      height: 40,
+      width: '40px !important',
+      height: '40px !important',
       position: 'absolute',
-      top: '18%',
-      right: '22%',
+      top: '18% !important',
+      right: '22% !important',
       cursor: 'pointer',
     },
     modalContent: {
@@ -204,8 +207,8 @@ const useStyle = makeStyles<Theme>({
       fontSize: '0.9em',
     },
     imgModal: {
-      width: 150,
-      height: 150,
+      width: '150px !important',
+      height: '150px !important',
       objectFit: 'scale-down',
     },
     linkModal: {
@@ -221,11 +224,11 @@ const useStyle = makeStyles<Theme>({
       justifyContent: 'center',
     },
     crossImg: {
-      width: 40,
-      height: 40,
+      width: '40px !important',
+      height: '40px !important',
       position: 'absolute',
-      top: '23%',
-      right: '22%',
+      top: '23% !important',
+      right: '22% !important',
       cursor: 'pointer',
     },
     modalDescription: {
@@ -234,8 +237,8 @@ const useStyle = makeStyles<Theme>({
       fontSize: '0.9em',
     },
     imgModal: {
-      width: 190,
-      height: 190,
+      width: '190px !important',
+      height: '190px !important',
       objectFit: 'scale-down',
     },
     linkModal: {
@@ -319,13 +322,15 @@ const Project: React.FC = () => {
                 onClick={handleCloseModal}
               />
             </Grid>
-            <Image
-              src={contentProjects.projet.src}
-              alt={contentProjects.projet.title}
-              width={300}
-              height={300}
-              className={classes.imgModal}
-            />
+            <Grid className={classes.imgModal}>
+              <Image
+                src={contentProjects.projet.src}
+                alt={contentProjects.projet.title}
+                className={classes.imgScale}
+                width={300}
+                height={300}
+              />
+            </Grid>
             <Grid container direction="column" className={classes.modalDescription}>
               <Text>{contentProjects.projet.title}</Text>
               <Text>{contentProjects.projet.description}</Text>
