@@ -7,7 +7,7 @@ import { Theme } from '@material-ui/core';
 import useEventListener from '@/hooks/useEventListener';
 import IStoreMusic from '@/interfaces/IStoreMusic';
 import { configImg } from '@/utils/img';
-import { PlayerEndMusic, playAndPause } from '@/utils/music';
+import { PlayerEndMusic } from '@/utils/music';
 
 import Border from '@/components/atoms/Border/Border';
 import Menu from '@/components/organisms/Menu/Menu';
@@ -37,12 +37,20 @@ const useStyle = makeStyles<Theme>({
   },
 });
 
-//const test = dynamic(() => import('@/utils/visibility.ts'), { ssr: false });
-
 const CreditView: React.FC = () => {
   const classes = useStyle();
   const musicOnOff = useSelector((state: IStoreMusic) => state.reducerMusic.music);
   const [music] = React.useState(new Audio('/sound/End_Credits.mp3'));
+
+  const playAndPause = (): void => {
+    if (!musicOnOff) return;
+
+    if (document.visibilityState === 'visible') {
+      music.play();
+    } else {
+      music.pause();
+    }
+  };
 
   const event = useEventListener('visibilitychange', playAndPause, document);
 
