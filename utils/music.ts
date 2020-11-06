@@ -17,6 +17,14 @@ export const PlayerEndMusic = (boolPlayOrNot:any, music:any): any => {
   }
 };
 
+export const playAndPause = (music: any): void => {
+  if (document.visibilityState === 'visible') {
+    music.play();
+  } else {
+    music.pause();
+  }
+};
+
 export const pathCursor: string = '/sound/cursor_oot_v2.mp3';
 export const pathStart: string = '/sound/start_v2.mp3';
 export const pathClose: string = '/sound/close_v2.mp3';
