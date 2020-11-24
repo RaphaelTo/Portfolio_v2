@@ -31,24 +31,6 @@ const useStyle = makeStyles<Theme, CSSProps>({
 });
 
 const Loader: React.FC<LoaderProps> = ({ point }) => {
-  /*const [exp, setExp] = React.useState(0);
-
-  React.useEffect(() => {
-    let mounted: boolean = true;
-
-    for (let index: number = 0; index <= point; index++) {
-      setTimeout(() => {
-        if (mounted) {
-          setExp(index);
-        }
-      }, 1000);
-    }
-
-    return () => {
-      mounted = false;
-    };
-  }, []);*/
-
   const classes = useStyle({ point });
 
   return (
