@@ -9,7 +9,7 @@ type LoaderProps = {
 };
 
 type CSSProps = {
-  exp: WidthProperty<string | number>;
+  point: WidthProperty<string | number>;
 };
 
 const useStyle = makeStyles<Theme, CSSProps>({
@@ -21,12 +21,17 @@ const useStyle = makeStyles<Theme, CSSProps>({
   },
   colorBar: {
     backgroundColor: '#70b8f0',
-    width: ({ exp }) => exp,
+    animation: `$loader 3s`,
+    width: ({ point }) => point,
+  },
+  '@keyframes loader': {
+    '0%': { width: 0 },
+    '100%': { width: ({ point }) => point },
   },
 });
 
 const Loader: React.FC<LoaderProps> = ({ point }) => {
-  const [exp, setExp] = React.useState(0);
+  /*const [exp, setExp] = React.useState(0);
 
   React.useEffect(() => {
     let mounted: boolean = true;
@@ -42,9 +47,9 @@ const Loader: React.FC<LoaderProps> = ({ point }) => {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, []);*/
 
-  const classes = useStyle({ exp });
+  const classes = useStyle({ point });
 
   return (
     <Grid container className={classes.bar}>
